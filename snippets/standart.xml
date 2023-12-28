@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <!-- GitHub -->
+  <remote  name="github"
+           fetch="https://github.com/" />
+
+  <!-- Gitlab -->
+  <remote  name="gitlab"
+           fetch="https://gitlab.com/" />
+
+  <!-- GitHub (StandartOS) -->
+  <remote  name="standart"
+           fetch="https://github.com/StandartOS"
+           revision="udc_qpr1" />
+
+  <!-- Gitlab (StandartOS) -->
+  <remote  name="standart-gitlab"
+           fetch="https://gitlab.com/xdroidpixel"
+           revision="udc_qpr1" />
+
+  <!-- Remote Device StandartOS-Pixel -->
+  <project path="device/standart/sepolicy" name="device_standart_sepolicy" remote="standart" />
+  <project path="device/mediatek/sepolicy_vndr" name="device_mediatek_sepolicy_vndr" remote="standart" />
+
+  <!-- Remote External StandartOS-Pixel -->
+  <project path="external/arm-optimized-routines" name="external_arm-optimized-routines" remote="standart" />
+  <project path="external/boringssl" name="external_boringssl" groups="pdk" remote="standart" />
+  <project path="external/jemalloc_new" name="external_jemalloc_new" remote="standart" />
+  <project path="external/perfetto" name="external_perfetto" groups="pdk" remote="standart" />
+  <project path="external/rust/crates/ring" name="external_rust_crates_ring" groups="pdk" remote="standart" />
+  <project path="external/sqlite" name="external_sqlite" groups="pdk" remote="standart" />
+
+  <!-- Remote Frameworks StandartOS-Pixel -->
+  <project path="frameworks/av" name="frameworks_av" remote="standart" />
+  <project path="frameworks/base" name="frameworks_base" remote="standart" />
+  <project path="frameworks/native" name="frameworks_native" remote="standart" />
+  <project path="frameworks/opt/telephony" name="frameworks_opt_telephony" remote="standart" />
+
+  <!-- Remote General repos StandartOS-Pixel -->
+  <project path="art" name="art" remote="standart" />
+  <project path="bionic" name="bionic" remote="standart" />
+  <project path="bootable/recovery" name="bootable_recovery" remote="standart" />
+  <project path="build/bazel" name="build_bazel" remote="standart" >
+    <linkfile src="bazel.WORKSPACE" dest="WORKSPACE" />
+    <linkfile src="bazel.BUILD" dest="BUILD" />
+  </project>
+  <project path="build/make" name="build" remote="standart" >
+    <copyfile src="core/root.mk" dest="Makefile" />
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+  <project path="build/soong" name="build_soong" remote="standart" >
+    <linkfile src="root.bp" dest="Android.bp" />
+    <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+  </project>
+
+  <!-- Remote Hardware StandartOS-Pixel -->
+  <project path="hardware/google/pixel-sepolicy" name="hardware_google_pixel-sepolicy" remote="standart" />
+  <project path="hardware/standart/interfaces" name="hardware_standart_interfaces" remote="standart" />
+  <project path="hardware/interfaces" name="hardware_interfaces" groups="pdk" remote="standart" />
+
+  <!-- Remote Packages -->
+  <project path="packages/apps/GameSpace" name="packages_apps_GameSpace" remote="standart" />
+  <project path="packages/apps/Nfc" name="packages_apps_Nfc" remote="standart" />
+  <project path="packages/apps/Settings" name="packages_apps_Settings" remote="standart" />
+  <project path="packages/apps/TouchGestures" name="packages_apps_TouchGestures" remote="standart" />
+  <project path="packages/apps/ViMusic" name="packages_apps_vimusic" remote="standart" />
+
+  <!-- Packages Modules StandartOS-Pixel -->
+  <project path="packages/modules/adb" name="packages_modules_adb" remote="standart" />
+  <project path="packages/modules/Bluetooth" name="packages_modules_Bluetooth" remote="standart" />
+  <project path="packages/modules/Connectivity" name="packages_modules_Connectivity" remote="standart-gitlab" clone-depth="1" />
+  <project path="packages/modules/Permission" name="packages_modules_Permission" remote="standart" />
+  <project path="packages/modules/Wifi" name="packages_modules_Wifi" remote="standart" />
+
+  <!-- Remote Packages Services StandartOS-Pixel -->
+  <project path="packages/services/Telecomm" name="packages_services_Telecomm" remote="standart" />
+  <project path="packages/services/Telephony" name="packages_services_Telephony" remote="standart" />
+
+  <!-- Remote System StandartOS-Pixel -->
+  <project path="system/core" name="system_core" remote="standart" />
+  <project path="system/sepolicy" name="system_sepolicy" remote="standart" />
+  <project path="system/server_configurable_flags" name="system_server_configurable_flags" remote="standart" />
+  <project path="system/update_engine" name="system_update_engine" remote="standart" />
+
+  <!-- Remote Toolchain StandartOS-Pixel -->
+  <project path="toolchain/pgo-profiles" name="toolchain_pgo-profiles" groups="pdk" remote="standart" />
+
+  <!-- Remote Vendor StandartOS-Pixel -->
+  <project path="vendor/standart" name="vendor_standart" remote="standart" />
+  <project path="vendor/standart-preference" name="vendor_standart-preference" remote="standart" />
+  <project path="vendor/gms" name="vendor_gms" remote="standart-gitlab" clone-depth="1" />
+  <project path="vendor/google/interfaces" name="vendor_google_interfaces" remote="standart" />
+  <!-- project path="vendor/pixel-framework" name="vendor_pixel-framework" remote="standart" /-->
+</manifest>
